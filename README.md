@@ -20,7 +20,7 @@ cd 67XXXXXXXX-X
 
 ---
 
-## ✅ Prerequisites (สิ่งที่ต้องมีก่อน)
+##  Prerequisites (สิ่งที่ต้องมีก่อน)
 
 | รายการ | เวอร์ชันที่รองรับ | ตรวจสอบ |
 |--------|------------------|---------|
@@ -39,10 +39,28 @@ cd 67XXXXXXXX-X
 
 ---
 
-## 🟣 Eclipse — สร้าง Spring Boot Project
+## 🟣 Eclipse — ติดตั้ง Spring Tools และสร้าง Spring Boot Project
 
-> ต้องติดตั้ง **Spring Tools 4 (STS4)** plugin ก่อน  
-> Help → Eclipse Marketplace → ค้นหา `Spring Tools` → Install
+> **Spring Tools 4 (ST4)** คือ plugin ล่าสุดสำหรับ Eclipse  
+> เวอร์ชันปัจจุบัน: **4.32.x** (Spring Tools 3 หยุดพัฒนาแล้ว อย่าลงผิด)
+
+### ขั้นตอนที่ 1 — ติดตั้ง Spring Tools 4 ผ่าน Eclipse Marketplace
+
+1. เปิด Eclipse → **Help → Eclipse Marketplace**
+2. ช่อง Search พิมพ์ `Spring Tools` → กด Enter
+3. เลือก **Spring Tools 4 (aka Spring Tool Suite 4)** → กด **Install**
+4. ติ๊กถูก features ที่ต้องการ → กด **Confirm**
+5. ยอมรับ License → กด **Finish**
+6. รอติดตั้ง → Eclipse จะขอ Restart → กด **Restart Now**
+
+> ⚠️ ถ้าหา Marketplace ไม่เจอ ให้ไปที่  
+> **Help → Install New Software** → วาง URL นี้:  
+> `https://cdn.spring.io/spring-tools/release/update/latest/`  
+> แล้วกด Add → ติ๊กเลือก features → กด Next จนเสร็จ
+
+---
+
+### ขั้นตอนที่ 2 — สร้าง Spring Boot Project ใน Eclipse
 
 **1. สร้างโปรเจกต์ใหม่**
 - File → New → Other
@@ -63,7 +81,7 @@ cd 67XXXXXXXX-X
 - กด Finish
 
 **4. รอ Eclipse ดาวน์โหลด Dependencies**
-- ดูแถบล่างขวา รอจนหาย (ประมาณ 1-3 นาที)
+- ดูแถบ progress ล่างขวา รอจนหาย (ประมาณ 1-3 นาที)
 - โปรเจกต์ปรากฏใน Package Explorer
 
 **5. รันโปรเจกต์**
@@ -290,9 +308,12 @@ git commit -m "feat: update student info - ID 67XXXXXXXX sec X"
 git push origin main
 ```
 
-> ⚠️ **GitHub ไม่รับ password ธรรมดาแล้ว** ต้องใช้ Personal Access Token:  
-> GitHub → Settings → Developer settings → Personal access tokens → Generateหาก new token
-> กรณี หากเข้า Password ไม่ได้ใช้วิธีนี้ แต่ถ้าปกติก็ Push ปกติ
+> ⚠️ **GitHub มี 2 แบบที่ต้องระวัง:**
+> - **Login บนเว็บ github.com** → ใช้ password ปกติได้
+> - **git push / git pull ผ่าน Terminal** → ใช้ password ไม่ได้ ต้องใช้ **Personal Access Token** แทน
+>
+> วิธีสร้าง Token: GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token → ติ๊ก `repo` → Copy token แล้วใช้แทน password
+
 ---
 
 ## 🐛 Troubleshooting
@@ -303,7 +324,7 @@ git push origin main
 | `mvn: command not found` | Maven ไม่อยู่ใน PATH | ดู [ขั้นตอนที่ 2](#-ขั้นตอนที่-2--ติดตั้ง-apache-maven) |
 | Port 8080 already in use | มีแอปอื่นใช้ port อยู่ | แก้ `server.port=9090` ใน `application.properties` |
 | `BUILD FAILURE` ตอน compile | Java syntax error | ดูบรรทัดที่ขึ้น `ERROR` ใน console |
-| กด Push แล้วขอ login | GitHub ต้องการ token | ใช้ Personal Access Token แทน password |**** หากเข้าได้ปกติไม่ต้องทำ****
+| กด Push แล้วขอ login | GitHub ต้องการ token | ใช้ Personal Access Token แทน password |
 
 ---
 
